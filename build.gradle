@@ -1,0 +1,26 @@
+configurations.maybeCreate("default")
+artifacts.add("default", file('panowidget.aar'))
+
+
+apply plugin: 'maven-publish'
+
+publishing {
+    publications {
+        rteditor(MavenPublication) {
+            groupId 'com.github.yaman'
+            artifactId 'panowidget'
+            version '0.0.1-SNAPSHOT'
+            artifact("$rootDir/panowidget.aar")
+        }
+    }
+    repositories {
+        maven {
+            url "https://oss.sonatype.org/content/repositories/snapshots"
+            credentials {
+                username "$System.env.SONATYPE_USERNAME"
+                password "$System.env.SONATYPE_PASSWORD"
+            }
+        }
+    }
+}
+
