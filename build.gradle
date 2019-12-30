@@ -8,7 +8,7 @@ publishing {
     publications {
         rteditor(MavenPublication) {
             groupId 'com.github.yaman'
-            artifactId 'panowidget'
+            artifactId 'google-vr-panowidget'
             version '0.0.1-SNAPSHOT'
             artifact("$rootDir/panowidget.aar")
         }
